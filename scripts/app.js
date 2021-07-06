@@ -45,4 +45,12 @@ cityform.addEventListener('submit', e =>{
     updatecity(city)
         .then(data => updateUI(data))
         .catch(err => alert('Invalid city',err));
+
+    localStorage.setItem('city',city);
+
 });
+
+if(localStorage.getItem('city'))
+    updatecity(localStorage.getItem('city'))
+    .then(data => updateUI(data))
+    .catch(err => alert('invalid'));
